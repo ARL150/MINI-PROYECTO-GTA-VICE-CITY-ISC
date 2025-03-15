@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+@font-face {
+    font-family: 'Pricedown Black';
+    src: url('../fonts/Pricedown Bl.otf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.instrucciones-background {
+    background: url('../assets/fondos/bg-instrucciones.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    font-family: 'Russo One', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+}
+
+.instruction-box {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    animation: fadeIn 1.5s ease-in-out, slideUp 1.5s ease-out;
+    border: 3px solid #ff4081;
+    box-shadow: 0 0 15px rgba(255, 64, 129, 0.8);
+}
+
+h2 {
+    font-family: 'Pricedown Black';
+    font-size: 45px;
+    color: #ff4081;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 20px;
+    margin: 8px 0;
+    opacity: 0;
+    animation: fadeText 1s forwards;
+}
+
+p:nth-child(2) { animation-delay: 0.5s; }
+p:nth-child(3) { animation-delay: 1s; }
+p:nth-child(4) { animation-delay: 1.5s; }
+p:nth-child(5) { animation-delay: 2s; }
+p:nth-child(6) { animation-delay: 2.5s; }
+p:nth-child(7) { animation-delay: 3s; }
+
+button {
+    padding: 12px 30px;
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    background: #ff4081;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(255, 64, 129, 0.8);
+}
+
+button:hover {
+    background: white;
+    color: #ff4081;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 1);
+}
+
+.controls {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.control-item {
+    text-align: center;
+}
+
+.control-icon {
+    font-size: 50px;
+    color: #ff4081;
+    transition: transform 0.3s;
+}
+
+.control-icon:hover {
+    transform: scale(1.2);
+}
+
+.control-item p {
+    font-size: 16px;
+    color: white;
+    margin-top: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); }
+    to { transform: translateY(0); }
+}
+
+@keyframes fadeText {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

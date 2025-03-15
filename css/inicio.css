@@ -1,0 +1,92 @@
+/* Importación de fuente */
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.index-background {
+    background: url('../assets/fondos/bg-index.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    font-family: 'Russo One', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+#menu {
+    text-align: center;
+    font-family: 'Russo One', sans-serif;
+    color: white;
+    width: 90%;
+    max-width: 900px; 
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(255, 64, 129, 0.8);
+    overflow: hidden;
+    max-height: 70%; 
+}
+
+#menu img {
+    max-width: 80%; 
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.menu-button {
+    padding: 15px 25px;
+    background: linear-gradient(45deg, #ff4081, #ff80ab);
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(255, 64, 129, 0.8);
+    margin: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 64, 129, 1);
+}
+
+.menu-button:focus {
+    outline: none;
+}
+
+.menu-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 botones en la primera fila */
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-options .bottom-buttons {
+    grid-column: span 3;
+    display: flex;
+    justify-content: center; 
+    gap: 20px; 
+}
+
+@media (max-width: 768px) {
+    .menu-options {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .menu-options .bottom-buttons {
+        flex-direction: column; 
+    }
+}

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GTA Vice City ISC</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/pricedown" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/conf.css">
+    <link rel="stylesheet" href="css/inicio.css">
+    <link rel="stylesheet" href="css/personaje.css">
+
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+    <!-- Menú Principal -->
+    <div id="menu">
+
+        <body class="index-background">
+            <img src="assets/imagen .png" alt="fuente-grand-theft-auto">
+            <br>
+            <!-- Opciones del Menú -->
+            <div class="menu-options">
+                <button class="menu-button" onclick="mostrarSeleccionPersonaje()">Iniciar Juego</button>
+                <button class="menu-button" onclick="window.location.href='puntuaciones.html'">Puntuaciones</button>
+                <button class="menu-button" onclick="window.location.href='instrucciones.html'">Instrucciones</button>
+                <button class="menu-button" onclick="window.location.href='creditos.html'">Créditos</button>
+                <button class="menu-button" onclick="confirmExit()">Salir</button>
+            </div>
+    </div>
+
+    <div class="controls-container">
+        <div class="control-button" onclick="toggleSettings()">
+            <i class="bx bx-cog icon"></i>
+        </div>
+        <div class="settings-menu" id="settingsMenu">
+            <div class="settings-option">
+                <div class="option-title">Home</div>
+                <div class="home-icon" onclick="goHome()">
+                    <i class="bx bx-home"></i>
+                </div>
+            </div>
+            <div class="settings-option">
+                <div class="option-title">Pausa/Play</div>
+                <div class="option-icon" onclick="togglePause()">
+                    <i class="bx bx-play" id="playPauseIcon"></i>
+                </div>
+            </div>
+            <div class="settings-option">
+                <div class="option-title">Música</div>
+                <div class="option-icon" onclick="toggleMusic()">
+                    <i class="bx bx-volume-full" id="musicIcon"></i>
+                </div>
+            </div>
+            <div class="settings-option">
+                <div class="option-title">Siguiente Canción</div>
+                <div class="option-icon" onclick="nextTrack()">
+                    <i class="bx bx-skip-next"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="character-selection">
+        <style>
+            #character-selection {
+                display: none;
+            }
+        </style>
+        <h2>SELECCIONA TU PERSONAJE</h2>
+
+        <div id="character-container">
+            <div class="characters">
+                <img id="character2" class="character" src="assets/personajes/2.png" alt="Personaje 2">
+                <img id="character1" class="character" src="assets/personajes/image.png" alt="Personaje 1">
+            </div>
+        </div>
+        <div id="dropZone">Arrastra tu personaje aquí</div>
+
+        <div class="name-selection">
+            <input type="text" id="playerName" placeholder="Ingresa tu nombre (máx. 8 caracteres)">
+            <button class="menu-button" onclick="startGame()">Comenzar</button>
+        </div>
+    </div>
+
+
+    <div id="gameCanvas" style="display: none;"></div>
+    <script>
+        function mostrarSeleccionPersonaje() {
+            document.getElementById("menu").style.display = "none";
+            document.getElementById("character-selection").style.display = "block";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const characters = document.querySelectorAll(".character");
+            const dropZone = document.getElementById("dropZone");
+
+            characters.forEach(character => {
+                character.addEventListener("dragstart", function (event) {
+                    event.dataTransfer.setData("text/plain", event.target.id);
+                });
+            });
+
+            dropZone.addEventListener("dragover", function (event) {
+                event.preventDefault();
+                dropZone.style.border = "2px dashed #ff4081";
+            });
+
+            dropZone.addEventListener("dragleave", function () {
+                dropZone.style.border = "2px dashed #ff4081";
+            });
+
+            dropZone.addEventListener("drop", function (event) {
+                event.preventDefault();
+
+                let characterId = event.dataTransfer.getData("text");
+                let dropZone = document.getElementById("dropZone");
+
+                if (characterId) {
+                    dropZone.innerHTML = "";
+                    let characterElement = document.getElementById(characterId).cloneNode(true);
+                    characterElement.style.width = "100px";
+                    characterElement.style.height = "auto";
+                    dropZone.appendChild(characterElement);
+
+                    selectedCharacter = characterId;
+                    console.log("Personaje seleccionado en drop:", selectedCharacter);
+                }
+            });
+        });
+    </script>
+    <script src="js/musica_pausa.js"></script>
+    <script src="js/funcionJuego.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargando...</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: white;
+            font-family: 'Russo One', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .logo {
+            width: 400px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 15px rgba(255, 64, 129, 0.8));
+        }
+
+        canvas {
+            border: 4px solid #ff4081;
+            background-color: #222;
+            box-shadow: 0px 0px 20px rgba(255, 64, 129, 0.8);
+        }
+
+        #startButton {
+            display: none;
+            padding: 12px 30px;
+            margin-top: 25px;
+            font-size: 22px;
+            font-weight: bold;
+            background: #ff4081;
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+            cursor: pointer;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(255, 64, 129, 0.8);
+        }
+
+        #startButton:hover {
+            background: white;
+            color: #ff4081;
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 1);
+        }
+    </style>
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <img src="assets/fondos/image.png" alt="GTA Vice City Logo" class="logo">
+    <canvas id="progressCanvas" width="600" height="150"></canvas>
+    <button id="startButton" onclick="enterGame()">Entrar al juego</button>
+
+    <audio id="backgroundAudio" src="assets/audio/Grand Theft Auto - Vice City (Main Theme Extended Mix).mp3" muted></audio>
+
+    <script>
+        const canvas = document.getElementById("progressCanvas");
+        const ctx = canvas.getContext("2d");
+        const audio = document.getElementById("backgroundAudio");
+        const startButton = document.getElementById("startButton");
+
+        let progress = 0;
+        const totalTime = 10000;  // Cambiado a 10000 ms (10 segundos)
+        const startTime = Date.now();  // Guardamos el tiempo de inicio
+
+        function drawProgressBar() {
+            const elapsedTime = Date.now() - startTime;  // Calculamos el tiempo transcurrido
+            progress = Math.min((elapsedTime / totalTime) * 100, 100);  // Calculamos el progreso
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);  // Limpiamos el canvas
+
+            // Fondo de la barra
+            ctx.fillStyle = "#440022";
+            ctx.fillRect(50, 80, 500, 30);
+
+            // Barra de progreso con brillo
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+            gradient.addColorStop(0, "#ff4081");
+            gradient.addColorStop(1, "#ff0055");
+            ctx.fillStyle = gradient;
+            ctx.fillRect(50, 80, (500 * progress) / 100, 30);
+
+            // Borde brillante
+            ctx.strokeStyle = "#fff";
+            ctx.lineWidth = 3;
+            ctx.strokeRect(50, 80, 500, 30);
+
+            // Texto "CARGANDO..."
+            ctx.font = "bold 28px 'Russo One', sans-serif";
+            ctx.fillStyle = "#fff";
+            ctx.textAlign = "center";
+            ctx.fillText("CARGANDO...", canvas.width / 2, 50);
+
+            // Mostrar el porcentaje
+            ctx.font = "bold 22px 'Russo One', sans-serif";
+            ctx.fillText(`${Math.round(progress)}%`, canvas.width / 2, 110);
+
+            // Si no ha llegado al 100%, seguimos dibujando la barra
+            if (progress < 100) {
+                requestAnimationFrame(drawProgressBar);
+            } else {
+                setTimeout(() => {
+                    startButton.style.display = "block";  // Muestra el botón después de 10 segundos
+                }, 500);  // Este retraso es para mostrar el botón después de que la barra haya terminado
+            }
+        }
+
+        function enterGame() {
+            window.location.href = "menu.html";  // Redirige al juego
+        }
+
+        // Iniciar la música y la animación de carga al hacer clic en la página
+        document.body.addEventListener("click", () => {
+            audio.play().then(() => {
+                audio.muted = false;  // Desactiva el mute después de que se reproduce
+            }).catch(error => console.log("El navegador bloqueó el audio: " + error));
+
+            // Iniciar la animación de carga después de hacer clic
+            drawProgressBar();
+        });
+    </script>
+
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="audio.js"></script>
+
+</body>
+
+</html>

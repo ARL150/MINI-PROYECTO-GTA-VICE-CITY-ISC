@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+@font-face {
+    font-family: 'Pricedown Black';
+    src: url('../fonts/Pricedown Bl.otf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url('assets/fondos/instrucciones.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    font-family: 'Russo One', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+}
+
+#character-selection {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 50px;
+    border-radius: 25px;
+    width: 95%;
+    max-width: 1000px;
+    animation: fadeIn 1s ease-in-out;
+    box-shadow: 0 0 25px rgba(255, 64, 129, 0.9);
+}
+
+h2 {
+    font-size: 55px;
+    color: #ff4081;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-family: 'Pricedown Black';
+}
+
+#character-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.characters {
+    display: flex;
+    gap: 30px;
+}
+
+.character {
+    width: 160px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 15px rgba(255, 64, 129, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.character:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 64, 129, 0.8);
+}
+
+.character img {
+    width: 100%;
+    max-width: 140px;
+    height: auto;
+    border-radius: 10px;
+}
+
+#dropZone {
+    border: 3px dashed #ff4081;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 15px;
+    transition: background 0.3s, border 0.3s;
+    margin: 0 auto 20px auto;
+}
+
+#dropZone:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #fff;
+}
+
+
+#dropZone img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+#playerName {
+    padding: 12px;
+    font-size: 20px;
+    border: 2px solid #ff4081;
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.menu-button {
+    padding: 14px 28px;
+    background: #ff4081;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 20px rgba(255, 64, 129, 0.8);
+    font-size: 18px;
+}
+
+.menu-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+}
+.character-description {
+    font-size: 20px; 
+    color: #ff4081;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase; 
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
+    transition: font-size 0.3s, color 0.3s;
+}
+
+@media (max-width: 768px) {
+    .character-description {
+        font-size: 18px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .character-description {
+        font-size: 16px; 
+    }
+}
+
+.character img {
+    width: 80%; 
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.character:hover img {
+    transform: scale(1.1); 
+    box-shadow: 0 0 25px rgba(255, 64, 129, 0.8);
+}
+
+.character {
+    width: 120px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center; 
+    box-shadow: 0 0 15px rgba(232, 43, 106, 0.8);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.character:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.2); 
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+
+
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .character-description {
+        font-size: 16px; /* Ajuste para tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .character-description {
+        font-size: 14px; /* Ajuste para smartphones */
+    }
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créditos - GTA Vice City Style</title>
+    <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/miami-vice" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/creditos.css">
+    <link rel="stylesheet" href="css/conf.css">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body class="creditos-background">
+    
+    <!-- Controles de configuración en la parte superior derecha -->
+    <div class="controls-container">
+        <div class="control-button" onclick="toggleSettings()"> <!-- Despliega las opciones -->
+            <i class="bx bx-cog icon"></i> <!-- Icono de configuración -->
+        </div>
+        <div class="settings-menu" id="settingsMenu">
+            <!-- Opciones de configuración con íconos -->
+            <div class="settings-option">
+                <div class="option-title">Home</div>
+                <div class="home-icon" onclick="goHome()">
+                    <i class="bx bx-home"></i>
+                </div>
+            </div>
+            <div class="settings-option">
+                <div class="option-title">Pausa/Play</div>
+                <div class="option-icon" onclick="togglePause()">
+                    <i class="bx bx-play" id="playPauseIcon"></i>
+                </div>
+            </div>
+            <div class="settings-option">
+                <div class="option-title">Música</div>
+                <div class="option-icon" onclick="toggleMusic()">
+                    <i class="bx bx-volume-full" id="musicIcon"></i>
+                </div>
+            </div>
+            <div class="settings-option">
+                <div class="option-title">Siguiente Canción</div>
+                <div class="option-icon" onclick="nextTrack()">
+                    <i class="bx bx-skip-next"></i> <!-- Icono de siguiente canción -->
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="credit-box">
+        <h2>Créditos</h2>
+    
+        <div class="credit-item">
+            <p>🎮 Jesus Abraham Robledo Lopez</p>
+            <img src="assets/creditos/abraham.png" alt="">
+        </div>
+    
+        <div class="credit-item">
+            <p>🎮 Jose Alberto Vazquez Guerrero</p>
+            <img src="assets/creditos/pepe.png" alt="">
+        </div>
+    
+        <div class="credit-item">
+            <p>🎮 Luis Antonio Gonzales Garcia</p>
+            <img src="assets/creditos/luis.png" alt="">
+        </div>
+    
+        <p>👩‍🏫 Dra. Georgina Salazar Partida</p> 
+        <p>💻 Tecnologías Web</p>
+        <p>🎓 ISC - 6to B</p>
+        <p>🔥 Gracias por jugar 🔥</p>
+        <p> Fecha de Entrega: 15 de Marzo del 2024 </p>
+
+        <button onclick="window.location.href='menu.html'">Menú Principal</button>
+    </div>
+    
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/musica_pausa.js"></script>
+    <script src="audio.js"></script>
+
+</body>
+</html>

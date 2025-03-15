@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrucciones - GTA Vice City Style</title>
+    <link href="https://fonts.cdnfonts.com/css/miami-vice" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/instrucciones.css">
+    <link rel="stylesheet" href="css/conf.css">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body class="instrucciones-background">
+    <!-- Controles de configuración en la parte superior derecha -->
+    <div class="controls-container">
+        <div class="control-button" onclick="toggleSettings()"> <!-- Despliega las opciones -->
+            <i class="bx bx-cog icon"></i> <!-- Icono de configuración -->
+        </div>
+        <div class="settings-menu" id="settingsMenu">
+            <!-- Opciones de configuración con íconos -->
+            <div class="settings-option">
+                <div class="option-title">Home</div>
+                <div class="home-icon" onclick="goHome()">
+                    <i class="bx bx-home"></i>
+                </div>
+            </div>
+            <div class="settings-option">
+                <div class="option-title">Pausa/Play</div>
+                <div class="option-icon" onclick="togglePause()">
+                    <i class="bx bx-play" id="playPauseIcon"></i>
+                </div>
+            </div>
+            <div class="settings-option">
+                <div class="option-title">Música</div>
+                <div class="option-icon" onclick="toggleMusic()">
+                    <i class="bx bx-volume-full" id="musicIcon"></i>
+                </div>
+            </div>
+            <div class="settings-option">
+                <div class="option-title">Siguiente Canción</div>
+                <div class="option-icon" onclick="nextTrack()">
+                    <i class="bx bx-skip-next"></i> <!-- Icono de siguiente canción -->
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="instruction-box">
+        <h2>Instrucciones del Juego</h2>
+        <p>🎮 <strong>Controles:</strong></p>
+        <div class="controls">
+            <div class="control-item">
+                <i class='bx bx-chevron-up control-icon'></i> <!-- Flecha arriba -->
+                <p>Salto / Agacharse</p>
+            </div>
+            <div class="control-item">
+                <i class='bx bx-chevron-down control-icon'></i> <!-- Flecha abajo -->
+                <p>Agacharse</p>
+            </div>
+            <div class="control-item">
+                <i class='bx bx-chevron-left control-icon'></i> <!-- Flecha izquierda -->
+                <p>Moverse a la izquierda</p>
+            </div>
+            <div class="control-item">
+                <i class='bx bx-chevron-right control-icon'></i> <!-- Flecha derecha -->
+                <p>Moverse a la derecha</p>
+            </div>
+        </div>
+
+        <p>💡 <strong>Objetivo del Juego:</strong></p>
+        <p>Tu objetivo es <strong>comer las fichas especiales</strong> para ganar más puntos, evitar los
+            <strong>ataques</strong> y <strong>bombas</strong> que aparecen, y comer los puntos que salen en cada nivel
+            para avanzar.</p>
+
+        <p>❤️ <strong>Vidas:</strong> Tienes <strong>tres vidas</strong> para completar cada nivel. Si pierdes todas,
+            ¡el juego termina!</p>
+
+        <p>🔢 <strong>Niveles:</strong> Existen varios niveles que deberás completar. Cada nivel será más desafiante que
+            el anterior.</p>
+
+        <p>🏆 <strong>Puntuación:</strong> Tu puntuación se guarda a lo largo del juego y podrás ver tu progreso en
+            cualquier momento.</p>
+
+        <p>👤 <strong>Usuario:</strong> Puedes ingresar tu nombre de usuario antes de comenzar el juego para guardar tu
+            puntuación.</p>
+
+        <p>🔥 <strong>¡Buena suerte y que disfrutes del juego!</strong></p>
+
+        <button onclick="window.location.href='menu.html'">Menú Principal</button>
+    </div>
+    <script src="js/musica_pausa.js"></script>
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+@font-face {
+    font-family: 'Pricedown Black';
+    src: url('../fonts/Pricedown Bl.otf') format('truetype');
+}
+
+:root {
+    --main-pink: #ff4081; /* Variable definida */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.puntuaciones-background {
+    background: url('../assets/fondos/bg-score.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    font-family: 'Russo One', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+}
+
+.scoreboard {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    animation: fadeIn 1s ease-in-out;
+    box-shadow: 0 0 15px color-mix(in srgb, var(--main-pink) 80%, transparent);
+}
+
+h2 {
+    font-family: 'Pricedown Black';
+    font-size: 45px;
+    color: var(--main-pink);
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 20px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+}
+
+.score-table {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px color-mix(in srgb, var(--main-pink) 60%, transparent);
+}
+
+/* Contenedor con scroll */
+#scores-container {
+    max-height: 400px; /* Ajusta la altura máxima */
+    overflow-y: auto; /* Habilita el scroll vertical */
+    scrollbar-width: thin; /* Para navegadores compatibles */
+    scrollbar-color: #ff0080 #1a1a1a; /* Personaliza el color del scroll */
+}
+
+/* Personalización del scroll para navegadores Webkit */
+#scores-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+#scores-container::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+#scores-container::-webkit-scrollbar-thumb {
+    background: #ff0080;
+    border-radius: 4px;
+}
+
+.score-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    color: var(--main-pink);
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--main-pink);
+    padding-bottom: 10px;
+}
+
+.score-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--main-pink);
+    color: #fff;
+}
+
+.score-row p:nth-child(1) {
+    font-weight: bold;
+}
+
+.score-row p:nth-child(2) {
+    font-style: italic;
+}
+
+.score-row p:nth-child(3) {
+    color: var(--main-pink);
+}
+
+button:hover {
+    background: white;
+    color: var(--main-pink);
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; 
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 30px;
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    background: var(--main-pink);
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+    box-shadow: 0 0 15px color-mix(in srgb, var(--main-pink) 80%, transparent);
+}
